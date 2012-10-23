@@ -10,7 +10,7 @@ Flow:
 
 1. Client slow-hashes password with the username as a salt. (here: N rounds of sha256, should use scrypt or bcrypt)
 1. Client submits hashed password instead of written password.
-1. Server hashes password 1 more time before storage, with a cryptographically secure hashing algorithm and a secret user specific salt.
+1. Server hashes password 1 more time before storage, with a cryptographically secure hashing algorithm and a secret user salt.
 1. Achievement unlocked: Cheap-ass slow-hashing, and no users on legacy browsers able to enter your site. Win-win!
 
 Conclusion:
