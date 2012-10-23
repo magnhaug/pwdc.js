@@ -2,15 +2,14 @@ $("form").submit(function(){
   console.time("pwdc timing");
 
   var pwdField = $(this).find("input[data-pwdc]"),
-      saltKey  = pwdField.attr("data-pwdc-saltid"), // Secret user-salt to be applied at server side. Not optimal but hey it's a PoC.
-	  salt     = $(this).find("#"+saltKey).val(),
-	  rounds   = pwdField.attr("data-pwdc-rounds"),
-	  rounds   = parseInt(rounds, 10),
+      saltKey  = pwdField.attr("data-pwdc-saltid"),
+      salt     = $(this).find("#"+saltKey).val(),  // Secret user-salt to be applied at server side. Not optimal but hey it's a PoC.
+      rounds   = pwdField.attr("data-pwdc-rounds"),
+      rounds   = parseInt(rounds, 10),
       pwd      = pwdField.val(),
-	  oldPwd   = pwdField.val(),
+      oldPwd   = pwdField.val(),
       count    = 0;
   
-  // Hash it up!
   do {
     pwd = sha256_digest(salt+pwd);
   }
