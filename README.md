@@ -17,3 +17,4 @@ Conclusion:
 - Good: No clear-text passwords will be sent through the network if your site is using plain http (not https).
 - Good: This largely disables [DDoS-by-bcrypt](http://www.analyticalengine.net/2012/06/one-of-many-problems-with-appsec/) attacks and alleviates the cost increase of using a slow hashing function.
 - Bad: It simply won't work too well if your users are stuck using inferior browsers or devices.
+- Bad: Even with modern browsers, we'd appreciate hardware acceleration. With Chrome I get about 30 000 rounds per second, which would make an attacker with a good CPU able try 100 000 passwords per second.
