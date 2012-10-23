@@ -7,10 +7,10 @@ The burden of securing a password should be with the client, not the server, in 
 This is a quick-n-dirty PoC showing how that might be done, using a toy slow-hashing algorithm (didnt bother finding a decent bcrypt implementation in JS).
 
 Flow:
-0. Client slow-hashes password with the username as a salt. (here: N rounds of sha256, should use scrypt or bcrypt)
-0. Client submits hashed password instead of written password.
-0. Server hashes password 1 more time before storage, with a cryptographically secure hashing algorithm and a secret user specific salt.
-0. Achievement unlocked: Cheap-ass slow-hashing, and no users on legacy browsers able to enter your site. Win-win!
+1. Client slow-hashes password with the username as a salt. (here: N rounds of sha256, should use scrypt or bcrypt)
+1. Client submits hashed password instead of written password.
+1. Server hashes password 1 more time before storage, with a cryptographically secure hashing algorithm and a secret user specific salt.
+1. Achievement unlocked: Cheap-ass slow-hashing, and no users on legacy browsers able to enter your site. Win-win!
 
 Conclusion:
 - Good: No clear-text passwords will be sent through the network if your site is using plain http (not https).
